@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
   productName = '박준우';
+  isDisabled = false;
 
   constructor() { 
     setTimeout(() => {
@@ -23,5 +24,6 @@ export class ProductComponent implements OnInit {
 
   changeName() {
     this.productName="가오니";
+    this.isDisabled = !this.isDisabled;
   }
 }

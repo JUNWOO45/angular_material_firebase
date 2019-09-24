@@ -1,3 +1,4 @@
 <p>product works!</p>
-<button (click)="changeName()">CHANGE NAME</button>
+<input type="text" [(ngModel)]="productName">
+<button (click)="changeName()" [disabled]="isDisabled">CHANGE NAME</button>
 <div>{{ productName }}</div>
