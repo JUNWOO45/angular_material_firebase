@@ -21,4 +21,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeName() {
+    this.productName="가오니";
+  }
 }
