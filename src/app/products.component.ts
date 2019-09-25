@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   productName = '박준우';
-  isDisabled = false;
+  isDisabled = true;
   products = ['책', '공', '칼', '총'];
 
   constructor() { 
-    // setTimeout(() => {
-    //   this.isDisabled = true;
-    // }, 3000);
+    setTimeout(() => {
+      this.isDisabled = false;
+    }, 3000);
   }
 
   ngOnInit() {
@@ -23,13 +23,16 @@ export class ProductsComponent {
     this.isDisabled = !this.isDisabled;
   }
 
-  onAddProduct() {
-    this.products.push(this.productName);
+  onAddProduct(form) {
+    // this.products.push(this.productName);
+    if(form.valid) {
+      this.products.push(form.value.productName);
+    }
   }
 
-  onRemoveProduct(productName: string) {
+  onRemoveProduct(product: string) {
     this.products = this.products.filter(p => {
-      return p !== productName
+      return p !== product;
     })
   }
 }
