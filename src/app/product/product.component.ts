@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -6,25 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  productName = '박준우';
-  isDisabled = false;
-  products = ['책', '공', '칼', '총'];
+  @Input() productName: string;
 
-  constructor() { 
-    setTimeout(() => {
-      this.isDisabled = true;
-    }, 3000);
-  }
+  constructor() {}
 
   ngOnInit() {
-  }
 
-  changeName() {
-    this.productName="가오니";
-    this.isDisabled = !this.isDisabled;
-  }
-
-  onAddProduct() {
-    this.products.push(this.productName);
   }
 }
