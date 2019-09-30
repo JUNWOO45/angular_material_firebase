@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductsService } from './products.service';
 import { HomeComponent } from './home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
