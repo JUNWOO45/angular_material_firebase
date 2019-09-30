@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductsService } from './products.service';
 
 @Component({
   selector: 'products-component',
@@ -7,11 +8,12 @@ import { Component } from '@angular/core';
 export class ProductsComponent {
   productName = '박준우';
   isDisabled = true;
-  products = ['책', '공', '칼', '총'];
+  products = [];
 
-  constructor() { 
+  constructor(private productsService: ProductsService) { 
     setTimeout(() => {
       this.isDisabled = false;
+      this.products = this.productsService.getProducts();
     }, 3000);
   }
 
@@ -24,9 +26,10 @@ export class ProductsComponent {
   }
 
   onAddProduct(form) {
-    // this.products.push(this.productName);
+    //input에 아무것도 없으면 false.
     if(form.valid) {
-      this.products.push(form.value.productName);
+      // this.products.push(form.value.productName);
+      this.productsService.addProduct(form.value.productName);
     }
   }
 
