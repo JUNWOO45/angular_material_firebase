@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { SignupComponent } from './auth/signup/signup.component';
 // import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MaterialModule } from './material.module';
     ProductsComponent,
     ProductComponent,
     HomeComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
