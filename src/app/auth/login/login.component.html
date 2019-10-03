@@ -1,34 +1,30 @@
 <section class="login-forms">
-  <form fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form 
+    fxLayoutGap="10px" 
+    fxLayout="column" 
+    fxLayoutAlign="center center"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="loginForm"
+    >
     <h1>로그인</h1>
     <mat-form-field>
       <input 
         type="email" 
         matInput 
-        placeholder="이메일주소" 
-        ngModel 
-        name="email"
-        email
-        required
-        #emailInput="ngModel"
+        placeholder="이메일을 적어주세요."
+        formControlName="email"
       >
-      <mat-error *ngIf="emailInput.hasError('required')">이메일주소를 반드시 적어주세요.</mat-error>
-      <mat-error *ngIf="!emailInput.hasError('required')">올바른 이메일주소가 아닙니다.</mat-error>
+    <mat-error>올바르지않은 이메일 형식입니다.</mat-error>
     </mat-form-field>
     <mat-form-field hintLabel="비밀번호는 6자리 이상이어야합니다.">
       <input 
         type="password" 
         matInput 
-        placeholder="비밀번호"
-        ngModel 
-        name="password"
-        required
-        minlength="6"
-        #passwordInput="ngModel"
+        placeholder="비밀번호를 입력해주세요."
+        formControlName="password"
       >
-      <mat-hint align="end">{{ passwordInput.value?.length }}/ 6</mat-hint>
+      <mat-error>비밀번호가 틀렸습니다.</mat-error>
     </mat-form-field>
-
-    <button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">로그인</button>
+    <button mat-raised-button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">로그인</button>
   </form>
 </section>
