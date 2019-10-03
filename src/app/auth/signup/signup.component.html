@@ -4,7 +4,7 @@
       <input 
         type="email" 
         matInput 
-        placeholder="Your Email" 
+        placeholder="이메일주소" 
         ngModel 
         name="email"
         email
@@ -15,12 +15,13 @@
       <input 
         type="password" 
         matInput 
-        placeholder="Your password"
+        placeholder="비밀번호"
         ngModel 
         name="password"
         required
         minlength="6"
       >
+      <mat-hint>비밀번호는 6글자 이상이어야합니다.</mat-hint>
     </mat-form-field>
 
     <button type="submit" mat-raised-button color="primary">button</button>
