@@ -34,10 +34,15 @@
         [matDatepicker]="picker" 
         placeholder="생일을 알려주세요."
         [max]="maxDate"
+        ngModel
+        name="datepicker"
+        required
       >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <mat-checkbox ngModel name="agree" required color="primary">이용약관에 동의</mat-checkbox>
 
     <button class="submit-btn" type="submit" mat-raised-button color="primary">button</button>
   </form>
