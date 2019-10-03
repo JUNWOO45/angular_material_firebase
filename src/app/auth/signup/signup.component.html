@@ -1,5 +1,7 @@
-<section class="signup-forms">
+
+<section>
   <form fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h1>회원가입</h1>
     <mat-form-field>
       <input 
         type="email" 
@@ -44,7 +46,7 @@
 
     <mat-checkbox ngModel name="agree" required color="primary">이용약관에 동의</mat-checkbox>
 
-    <button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">button</button>
+    <button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">회원가입</button>
   </form>
 
   
