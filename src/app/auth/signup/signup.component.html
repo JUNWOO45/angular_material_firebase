@@ -10,8 +10,9 @@
         email
         required
       >
+      <mat-error>올바른 형식이 아닙니다.</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field hintLabel="비밀번호는 6자리 이상이어야합니다.">
       <input 
         type="password" 
         matInput 
@@ -20,10 +21,11 @@
         name="password"
         required
         minlength="6"
+        #passwordInput="ngModel"
       >
-      <mat-hint>비밀번호는 6글자 이상이어야합니다.</mat-hint>
+      <mat-hint align="end">{{ passwordInput.value?.length }}/ 6</mat-hint>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary">button</button>
+    <button class="submit-btn" type="submit" mat-raised-button color="primary">button</button>
   </form>
 </section>
