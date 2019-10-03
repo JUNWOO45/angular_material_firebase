@@ -9,8 +9,10 @@
         name="email"
         email
         required
+        #emailInput="ngModel"
       >
-      <mat-error>올바른 형식이 아닙니다.</mat-error>
+      <mat-error *ngIf="emailInput.hasError('required')">이메일주소를 반드시 적어주세요.</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">올바른 이메일주소가 아닙니다.</mat-error>
     </mat-form-field>
     <mat-form-field hintLabel="비밀번호는 6자리 이상이어야합니다.">
       <input 
