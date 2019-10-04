@@ -1,0 +1,9 @@
+<mat-nav-list fxFlex fxLayout="column">
+  <a mat-list-item routerLink="/" (click)="onClose()"><mat-icon>home</mat-icon></a>
+  <a mat-list-item routerLink="/signup" (click)="onClose()">회원가입</a>
+  <a mat-list-item routerLink="/login" (click)="onClose()">로그인</a>
+  <a mat-list-item routerLink="/training" (click)="onClose()">트레이닝</a>
+  <button mat-list-item (click)="onClose()">
+    <span>로그아웃</span>
+  </button>
+</mat-nav-list>
