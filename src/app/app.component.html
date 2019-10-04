@@ -6,9 +6,13 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div>
-        <button (click)="sidenav.toggle()">사이드메뉴</button>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
       </div>
-      <div>로고</div>
+      <div>
+        <a routerLink="/">로고</a>
+      </div>
       <div>
         <a routerLink="/signup">회원가입</a>
         <a routerLink="/login">로그인</a>
