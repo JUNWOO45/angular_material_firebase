@@ -20,3 +20,7 @@ a:active {
   text-decoration: none;
   color: black;
 }
+
+.nav-icon {
+  padding-right: 5px;
+}
