@@ -15,3 +15,8 @@ a:hover,
 a:active {
   color: lightgray;
 }
+
+.sidenav-menu {
+  text-decoration: none;
+  color: black;
+}

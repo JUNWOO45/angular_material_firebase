@@ -1,19 +1,19 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
-    <div>사이드 메뉴1</div>
+  <mat-sidenav #sidenav role="navigation" >
+    <div><a routerLink="/signup" class="sidenav-menu">회원가입</a></div>
     <div>사이드 메뉴2</div>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div>
-        <button mat-icon-button (click)="sidenav.toggle()">
+        <button mat-icon-button (click)="sidenav.toggle()" fxHide.sm fxHide.md fxHide.lg fxHide.xl>
           <mat-icon>menu</mat-icon>
         </button>
       </div>
       <div>
         <a routerLink="/">로고</a>
       </div>
-      <div fxFlex="" fxLayoutAlign="flex-end" fxLayoutGap="10px">
+      <div fxFlex fxLayoutAlign="flex-end" fxLayoutGap="10px" fxHide.xs>
         <a routerLink="/signup">회원가입</a>
         <a routerLink="/login">로그인</a>
         <a routerLink="/training">트레이닝</a>
