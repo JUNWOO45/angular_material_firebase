@@ -1,8 +1,22 @@
 <mat-sidenav-container>
-  <mat-sidenav opened="true">
-    <p>hello world</p>
+  <mat-sidenav #sidenav role="navigation">
+    <div>사이드 메뉴1</div>
+    <div>사이드 메뉴2</div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <mat-toolbar color="primary">
+      <div>
+        <button (click)="sidenav.toggle()">사이드메뉴</button>
+      </div>
+      <div>로고</div>
+      <div>
+        <a routerLink="/signup">회원가입</a>
+        <a routerLink="/login">로그인</a>
+        <a routerLink="/training">트레이닝</a>
+      </div>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
