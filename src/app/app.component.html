@@ -1,7 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation" >
-    <div><a routerLink="/signup" class="sidenav-menu">회원가입</a></div>
-    <div>사이드 메뉴2</div>
+  <mat-sidenav #sidenav role="navigation">
+    <mat-nav-list fxFlex fxLayout="column" (click)="sidenav.toggle()">
+      <a mat-list-item routerLink="/">홈</a>
+      <a mat-list-item routerLink="/signup">회원가입</a>
+      <a mat-list-item routerLink="/login">로그인</a>
+      <a mat-list-item routerLink="/training">트레이닝</a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
