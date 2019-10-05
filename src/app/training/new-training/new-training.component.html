@@ -2,7 +2,15 @@
   <mat-card fxFlex="400px">
     <mat-card-title>달립시다!</mat-card-title>
     <mat-card-content>
-      달리기는 우리를 건강하게 만들어줍니다. 우리는 이제 달려야합니다.
+      <mat-form-field>
+        <mat-label>운동리스트</mat-label>
+        <mat-select>
+          <mat-option>테니스</mat-option>
+          <mat-option>헬스</mat-option>
+          <mat-option>마라톤</mat-option>
+          <mat-option>탁구</mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
       <button type="submit" mat-button color="primary">시작</button>

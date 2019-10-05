@@ -25,6 +25,15 @@
       >
       <mat-error>비밀번호가 틀렸습니다.</mat-error>
     </mat-form-field>
-    <button mat-raised-button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">로그인</button>
+
+    <button 
+      mat-raised-button 
+      class="submit-btn" 
+      type="submit"
+      color="primary" 
+      [disabled]="loginForm.invalid"
+    >
+      로그인
+    </button>
   </form>
 </section>
