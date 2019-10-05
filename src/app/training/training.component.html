@@ -1,8 +1,10 @@
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group animationDuration="0ms" *ngIf="!onGoingTraining">
   <mat-tab label="새로운 트레이닝">
-    <app-new-training></app-new-training>
+    <app-new-training (startedTraining)="onGoingTraining = true"></app-new-training>
   </mat-tab>
   <mat-tab label="지난 트레이닝">
     <app-past-training></app-past-training>
   </mat-tab>
 </mat-tab-group>
+
+<app-current-training *ngIf="onGoingTraining"></app-current-training>

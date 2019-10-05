@@ -1,1 +1,7 @@
-<p>current-training works!</p>
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner class="current-training" mode="determinate" [value]="progress" ></mat-progress-spinner>
+  <h1>진행률: {{ progress }}%</h1>
+  <button mat-raised-button>완료</button>
+</section>
+
+
