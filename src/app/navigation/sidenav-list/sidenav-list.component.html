@@ -3,7 +3,7 @@
   <a *ngIf="!isAuth" mat-list-item routerLink="/login" (click)="onClose()">로그인</a>
   <a *ngIf="!isAuth" mat-list-item routerLink="/signup" (click)="onClose()">회원가입</a>
   <a *ngIf="isAuth" mat-list-item routerLink="/training" (click)="onClose()">트레이닝</a>
-  <button *ngIf="isAuth" mat-list-item (click)="onClose()">
+  <button *ngIf="isAuth" mat-list-item (click)="onLogout()">
     <span>로그아웃</span>
   </button>
 </mat-nav-list>
