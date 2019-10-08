@@ -11,7 +11,7 @@ export class TrainingService {
     { id: 'climing', name: 'Climing', duration: 60, calories: 80 }
   ];
 
-  private activatedExercise: Exercise;
+  activatedExercise: Exercise;
 
   getExercises() {
     return this.availableExercises.slice();
@@ -19,9 +19,12 @@ export class TrainingService {
 
   startExercise(selectedId) {
     this.activatedExercise = this.availableExercises.find(exercise => {
-      exercise.id === selectedId;
+      return exercise.id === selectedId;
     });
-
     this.exerciseChanged.next({...this.activatedExercise})
+  }
+
+  getActivatedExercise() {
+    return { ...this.activatedExercise };
   }
 }
