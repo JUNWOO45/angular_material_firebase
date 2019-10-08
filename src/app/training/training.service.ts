@@ -8,7 +8,15 @@ export class TrainingService {
     { id: 'climing', name: 'Climing', duration: 60, calories: 80 }
   ];
 
+  private activatedExercise: Exercise;
+
   getExercises() {
     return this.availableExercises.slice();
+  }
+
+  startExercise(selectedId) {
+    this.activatedExercise = this.availableExercises.find(exercise => {
+      exercise.id === selectedId;
+    });
   }
 }
