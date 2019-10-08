@@ -20,6 +20,7 @@ import { StopTrainingComponent } from './training/current-training/stop-training
 // import { MatSliderModule } from '@angular/material/slider';
 
 import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { AuthService } from './auth/auth.service';
     ReactiveFormsModule
     // MatSliderModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
