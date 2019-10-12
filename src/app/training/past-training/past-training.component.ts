@@ -27,4 +27,8 @@ export class PastTrainingComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  doFilter(filterValue) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
