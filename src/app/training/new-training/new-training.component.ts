@@ -4,6 +4,7 @@ import { Exercise } from '../exercise.model';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-training',
@@ -18,9 +19,20 @@ export class NewTrainingComponent implements OnInit {
 
   ngOnInit() {
     // this.trainingList = this.trainingService.getExercises();  //firebase에서 DB만들면서 삭제
-    this.trainingList = this.db.
-      collection('availableExercises').
-      valueChanges();
+    this.trainingList = this.db
+      .collection('availableExercises')
+      // .valueChanges();
+      .snapshotChanges()
+      .pipe(map(docData => {
+        return docData.map(doc => {
+          return {
+            id: doc.payload.doc.id,
+            name: doc.payload.doc.data()['name'],
+            duration: doc.payload.doc.data()['duration'],
+            calories: doc.payload.doc.data()['calories']
+          };
+        });
+      }))
   }
 
   trainingStart(form: NgForm) {
