@@ -33,6 +33,7 @@ export class TrainingService {
         });
       }))
       .subscribe((exercise: Exercise[]) => {
+        console.log('exercise : ', exercise);
         this.availableExercises = exercise;
         this.exercisesChanged.next([...this.availableExercises]);
       })
@@ -46,7 +47,12 @@ export class TrainingService {
   }
 
   completeExercise() {
-    this.exercises.push({
+    // this.exercises.push({
+    //   ...this.activatedExercise, 
+    //   date: new Date(),
+    //   state: 'completed'
+    // });
+    this.addDataToDatabase({
       ...this.activatedExercise, 
       date: new Date(),
       state: 'completed'
@@ -56,7 +62,14 @@ export class TrainingService {
   }
 
   cancelExercise(progress: number) {
-    this.exercises.push({
+    // this.exercises.push({
+    //   ...this.activatedExercise, 
+    //   duration: this.activatedExercise.duration * (progress / 100),
+    //   calories: this.activatedExercise.calories * (progress / 100),
+    //   date: new Date(),
+    //   state: 'cancelled'
+    // });
+    this.addDataToDatabase({
       ...this.activatedExercise, 
       duration: this.activatedExercise.duration * (progress / 100),
       calories: this.activatedExercise.calories * (progress / 100),
@@ -73,5 +86,9 @@ export class TrainingService {
 
   getCompletedOrCancelledExercise() {
     return this.exercises.slice();
+  }
+
+  private addDataToDatabase(exercise: Exercise) {
+    this.db.collection('finishedExercises').add(exercise);
   }
 }
