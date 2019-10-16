@@ -16,10 +16,6 @@ export class AuthService {
   }
 
   registerUser(authData: AuthData) {
-    // this.user = {
-    //   email: authData.email,
-    //   userId: Math.round(Math.random() * 10000).toString()
-    // };
     this.afAuth.auth.createUserWithEmailAndPassword(
       authData.email, 
       authData.password
@@ -30,8 +26,6 @@ export class AuthService {
       .catch(error => {
         console.log('error : ', error);
       })
-
-    this.successfullyAuth();
   }
 
   login(authData: AuthData) {
@@ -49,8 +43,6 @@ export class AuthService {
     .catch(error => {
       console.log('error : ', error);
     })
-
-    this.successfullyAuth();
   }
 
   logout() {
