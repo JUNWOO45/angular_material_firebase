@@ -36,6 +36,8 @@ export class TrainingService {
         console.log('exercise : ', exercise);
         this.availableExercises = exercise;
         this.exercisesChanged.next([...this.availableExercises]);
+      }, error => {
+        // console.log('error : ', error);
       })
   }
 
@@ -74,10 +76,14 @@ export class TrainingService {
   }
 
   fetchCompletedOrCancelledExercise() {
-    this.db.collection('finishedExercises').valueChanges().subscribe((exercises: Exercise[]) => {
-      // this.finishedExercises = exercises;
-      this.finishedExercisesChanged.next(exercises);
-    });
+    this.db
+      .collection('finishedExercises')
+      .valueChanges()
+      .subscribe((exercises: Exercise[]) => {
+        this.finishedExercisesChanged.next(exercises);
+      }, error => {
+        // console.log('error : ', error);
+      });
   }
 
   private addDataToDatabase(exercise: Exercise) {
