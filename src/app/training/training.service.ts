@@ -21,7 +21,6 @@ export class TrainingService {
   fetchExercises() {
     this.db
       .collection('availableExercises')
-      // .valueChanges();
       .snapshotChanges()
       .pipe(map(docData => {
         return docData.map(doc => {
@@ -49,11 +48,6 @@ export class TrainingService {
   }
 
   completeExercise() {
-    // this.exercises.push({
-    //   ...this.activatedExercise, 
-    //   date: new Date(),
-    //   state: 'completed'
-    // });
     this.addDataToDatabase({
       ...this.activatedExercise, 
       date: new Date(),
@@ -64,13 +58,6 @@ export class TrainingService {
   }
 
   cancelExercise(progress: number) {
-    // this.exercises.push({
-    //   ...this.activatedExercise, 
-    //   duration: this.activatedExercise.duration * (progress / 100),
-    //   calories: this.activatedExercise.calories * (progress / 100),
-    //   date: new Date(),
-    //   state: 'cancelled'
-    // });
     this.addDataToDatabase({
       ...this.activatedExercise, 
       duration: this.activatedExercise.duration * (progress / 100),
