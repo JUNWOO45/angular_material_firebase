@@ -6,13 +6,19 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TrainingService } from '../training/training.service';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
 
-  constructor(private router: Router, private afAuth: AngularFireAuth, private trainingService: TrainingService) {
+  constructor(
+    private router: Router, 
+    private afAuth: AngularFireAuth, 
+    private trainingService: TrainingService,
+    private _snackBar: MatSnackBar
+    ) {
 
   }
 
@@ -40,6 +46,7 @@ export class AuthService {
       })
       .catch(error => {
         console.log('error : ', error);
+        this.openSnackBar(error.message, '확인');
       })
   }
 
@@ -52,6 +59,7 @@ export class AuthService {
     })
     .catch(error => {
       console.log('error : ', error);
+      this.openSnackBar(error.message, '확인');
     })
   }
 
@@ -61,5 +69,19 @@ export class AuthService {
 
   isAuth() {
     return this.isAuthenticated;
+  }
+
+  openSnackBar(errorMessage: string, action: string) {
+    let message;
+    if(errorMessage === "There is no user record corresponding to this identifier. The user may have been deleted.") {
+      message = "잘못된 이메일 정보입니다."
+    } else if(errorMessage = "The password is invalid or the user does not have a password.") {
+      message = "비밀번호가 틀렸습니다."
+    } else if(errorMessage = "The email address is already in use by another account.") {
+      message = "이미 가입된 이메일입니다."
+    }
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }
