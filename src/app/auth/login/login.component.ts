@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
-// import { MatSnackBarModule } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private _snackBar: MatSnackBarModule) { }
+  constructor(private authService: AuthService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({

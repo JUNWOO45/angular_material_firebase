@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TrainingService } from '../training/training.service';
 import { MatSnackBar } from '@angular/material';
+import { UIService } from '../shared/ui.service';
 
 @Injectable()
 export class AuthService {
@@ -17,7 +18,8 @@ export class AuthService {
     private router: Router, 
     private afAuth: AngularFireAuth, 
     private trainingService: TrainingService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private uiService: UIService
     ) {
 
   }
@@ -51,6 +53,7 @@ export class AuthService {
   }
 
   login(authData: AuthData) {
+    this.uiService.loadingStateChanged.next()
     this.afAuth.auth.signInWithEmailAndPassword(
       authData.email,
       authData.password
