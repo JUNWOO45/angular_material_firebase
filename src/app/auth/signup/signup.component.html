@@ -46,7 +46,16 @@
 
     <mat-checkbox ngModel name="agree" required color="primary">이용약관에 동의</mat-checkbox>
 
-    <button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">회원가입</button>
+    <button 
+      class="submit-btn" 
+      type="submit" 
+      mat-raised-button 
+      color="primary" 
+      [disabled]="f.invalid"
+      *ngIf="!isLoading"
+    >
+      회원가입
+    </button>
 
     <mat-spinner *ngIf="isLoading"></mat-spinner>
   </form>

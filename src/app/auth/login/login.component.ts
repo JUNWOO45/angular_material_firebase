@@ -16,11 +16,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private loadingSubscription: Subscription;
 
-  constructor(private authService: AuthService, private _snackBar: MatSnackBar, private uiService: UIService) { }
+  constructor(private authService: AuthService, private uiService: UIService) { }
 
   ngOnInit() {
-    this.loadingSubscription = this.uiService.loadingStateChanged.subscribe(isLoading => {
-      this.isLoading = isLoading;
+    this.loadingSubscription = this.uiService.loadingStateChanged.subscribe(loadingState => {
+      this.isLoading = loadingState;
     });
     this.loginForm = new FormGroup({
       email: new FormControl('', {validators: [Validators.required, Validators.email]}),
@@ -33,12 +33,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     })
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-    });
   }
 
   ngOnDestroy() {
