@@ -40,29 +40,34 @@ export class AuthService {
   }
 
   registerUser(authData: AuthData) {
+    this.uiService.loadingStateChanged.next(true);
     this.afAuth.auth.createUserWithEmailAndPassword(
       authData.email, 
       authData.password
       ).then(result => {
         console.log('result : ', result);
+        this.uiService.loadingStateChanged.next(false);
       })
       .catch(error => {
         console.log('error : ', error);
         this.openSnackBar(error.message, '확인');
+        this.uiService.loadingStateChanged.next(false);
       })
   }
 
   login(authData: AuthData) {
-    this.uiService.loadingStateChanged.next()
+    this.uiService.loadingStateChanged.next(true);
     this.afAuth.auth.signInWithEmailAndPassword(
       authData.email,
       authData.password
     ).then(result => {
       console.log('result : ', result);
+      this.uiService.loadingStateChanged.next(false);
     })
     .catch(error => {
       console.log('error : ', error);
       this.openSnackBar(error.message, '확인');
+      this.uiService.loadingStateChanged.next(false);
     })
   }
 

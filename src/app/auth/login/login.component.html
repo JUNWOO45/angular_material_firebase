@@ -32,9 +32,10 @@
       type="submit"
       color="primary" 
       [disabled]="loginForm.invalid"
+      *ngIf="!isLoading"
     >
       로그인
     </button>
-    <mat-spinner></mat-spinner>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </form>
 </section>
