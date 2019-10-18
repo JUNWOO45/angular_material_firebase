@@ -4,6 +4,7 @@ import { Exercise } from './exercise.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { UIService } from '../shared/ui.service';
 
 @Injectable()
 export class TrainingService {
@@ -15,7 +16,7 @@ export class TrainingService {
   private finishedExercises: Exercise[] = [];
   private fbSubscription: Subscription[] = [];
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private uiService: UIService) {
 
   }
   fetchExercises() {
@@ -36,6 +37,8 @@ export class TrainingService {
         console.log('exercise : ', exercise);
         this.availableExercises = exercise;
         this.exercisesChanged.next([...this.availableExercises]);
+      }, error => {
+        this.uiService.openSnackBar('데이터를 불러오지 못했습니다. 다시 시도해주세요', '확인', 2000);
       }));
   }
 
