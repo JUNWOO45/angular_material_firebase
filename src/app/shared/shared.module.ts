@@ -9,7 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     FormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule 
   ],
   exports: [
     CommonModule,
