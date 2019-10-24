@@ -1,12 +1,10 @@
 import { Subject } from 'rxjs/Subject';
 
-import { User } from './user.model';
 import { AuthData } from './auth-data.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TrainingService } from '../training/training.service';
-import { MatSnackBar } from '@angular/material';
 import { UIService } from '../shared/ui.service';
 
 @Injectable()
