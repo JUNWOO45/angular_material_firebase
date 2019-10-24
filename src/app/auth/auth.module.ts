@@ -14,9 +14,9 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
     AngularFireAuthModule
